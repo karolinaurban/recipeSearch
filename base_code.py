@@ -24,19 +24,3 @@ def run():
 
 
 run()
-
-class saverecipes:
-
-    saverecipes = input('Do you want to save these recipes into a file?')
-
-if saverecipes == 'y':
-    with open("recipe.txt", "w") as recipe_file:
-        recipe_file.write(saverecipes) + int('save_recipe')
-        recipe_file.close()
-
-else:
-    print('Thank you! Enjoy your meal')
-
-file2write=open("Your recipes",'w')
-file2write.write("Your recipes are here, enjoy!")
-file2write.close()
