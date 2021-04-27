@@ -16,11 +16,14 @@ def run():
 
     results = recipe_search(ingredient)
 
-    for result in results:
-        recipe = result['recipe']
+    if results is None:
+        print('No recipe found for this criteria')
+    else:
+        for result in results:
+            recipe = result['recipe']
 
-        print('\n' + recipe['label'])
-        print(recipe['uri'])
+            print('\n' + recipe['label'])
+            print(recipe['shareAs'])
 
 
 run()
