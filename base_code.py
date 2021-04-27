@@ -27,3 +27,14 @@ def run():
 
 
 run()
+
+class saverecipes:
+
+    saverecipes = input('Do you want to save these recipes into a file?')
+
+if saverecipes == 'y':
+    with open('recipetext.txt', 'r') as recipe_file:
+        recipe_file.read(saverecipes) + int('this_recipe')
+        recipe_file.close()
+
+print('Thank you! Enjoy your meal')
