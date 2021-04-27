@@ -15,26 +15,14 @@ def run():
     ingredient = input('Enter an ingredient: ')
 
     results = recipe_search(ingredient)
+    for result in results:
+        recipe = result['recipe']
+        print('\n' + recipe['label'])
+        print(recipe['dietLabels'])
+        print(recipe['healthLabels'])
+        print(recipe['shareAs'])
 
-    if results is None:
-        print('No recipe found for this criteria')
-    else:
-        for result in results:
-            recipe = result['recipe']
-
-            print('\n' + recipe['label'])
-            print(recipe['shareAs'])
+    print('Done! Thank you! Enjoy your meal.')
 
 
 run()
-
-class saverecipes:
-
-    saverecipes = input('Do you want to save these recipes into a file?')
-
-if saverecipes == 'y':
-    with open('recipetext.txt', 'r') as recipe_file:
-        recipe_file.read(saverecipes) + int('this_recipe')
-        recipe_file.close()
-
-print('Thank you! Enjoy your meal')
