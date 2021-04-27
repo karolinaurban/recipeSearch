@@ -11,6 +11,22 @@ def recipe_search(ingredient):
     return data['hits']
 
 
+def save_recipes(ingredient, results):
+    choice = input('\nDo you want to save these recipes? ')
+
+    if choice == 'y':
+        file = open('recipes.txt', 'w+')
+        try:
+            results = recipe_search(ingredient)
+            for result in results:
+                recipe = result['recipe']
+
+                file.write(recipe['label'])
+        finally:
+            file.close()
+        print('Done! Thank you! Enjoy your meal.')
+
+
 def run():
     ingredient = input('Enter an ingredient: ')
 
@@ -22,7 +38,9 @@ def run():
         print(recipe['healthLabels'])
         print(recipe['shareAs'])
 
-    print('Done! Thank you! Enjoy your meal.')
+    save_recipes(ingredient, results)
 
 
 run()
+
+
